@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalized Financial Advice</title>
+  <!-- Link to your compiled Tailwind CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body class="bg-background text-foreground font-sans">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-6 text-center">Your Personalized Financial Advice</h1>
+    
+    <div class="bg-gray-50 border border-gray-300 p-6 rounded shadow mb-6">
+      <!-- Display the generated advice; using the 'prose' class from Tailwind Typography -->
+      <div class="prose">
+        {{ advice|safe }}
+      </div>
+    </div>
+    
+    <div class="text-center mb-6">
+      <a href="/followup" class="inline-block bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+        Ask a Follow-Up Question
+      </a>
+    </div>
+    
+    <hr class="my-6">
+    
+    <h3 class="text-2xl font-semibold mb-4">Financial Data Summary</h3>
+    <p class="mb-1"><span class="font-medium">Ticker:</span> {{ ticker }}</p>
+    <p class="mb-1"><span class="font-medium">Market Price:</span> {{ market_price }}</p>
+    <p class="mb-1"><span class="font-medium">Market Volume:</span> {{ market_volume }}</p>
+    <p class="mb-1"><span class="font-medium">Market Cap:</span> {{ market_cap }}</p>
+  </div>
+</body>
+</html>

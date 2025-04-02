@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Personalized Financial Planning</title>
+  <!-- Link to your Tailwind CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body class="bg-background text-foreground font-sans">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-8 text-center">Personalized Financial Planning</h1>
+    
+    <form action="/" method="post" class="max-w-2xl mx-auto bg-white shadow rounded-lg p-6">
+      <!-- Personal Information -->
+      <div class="border border-gray-300 p-4 rounded mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Personal Information</h2>
+        <label for="name" class="block text-lg font-medium mb-1">Name:</label>
+        <input type="text" id="name" name="name" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label for="age" class="block text-lg font-medium mt-4 mb-1">Age:</label>
+        <input type="number" id="age" name="age" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label for="email" class="block text-lg font-medium mt-4 mb-1">Email:</label>
+        <input type="email" id="email" name="email" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      
+      <!-- Life Events & Goals -->
+      <div class="border border-gray-300 p-4 rounded mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Life Events & Goals</h2>
+        <p class="text-lg font-medium mb-2">Are you planning for marriage?</p>
+        <div class="flex items-center space-x-4">
+          <label class="inline-flex items-center">
+            <input type="radio" name="marriage" value="yes" class="form-radio text-blue-600">
+            <span class="ml-2">Yes</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="marriage" value="no" checked class="form-radio text-blue-600">
+            <span class="ml-2">No</span>
+          </label>
+        </div>
+        
+        <p class="text-lg font-medium mt-4 mb-2">Do you have children or are planning for children's education?</p>
+        <div class="flex items-center space-x-4">
+          <label class="inline-flex items-center">
+            <input type="radio" name="children" value="yes" class="form-radio text-blue-600">
+            <span class="ml-2">Yes</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="children" value="no" checked class="form-radio text-blue-600">
+            <span class="ml-2">No</span>
+          </label>
+        </div>
+        
+        <p class="text-lg font-medium mt-4 mb-2">Are you planning a home purchase?</p>
+        <div class="flex items-center space-x-4">
+          <label class="inline-flex items-center">
+            <input type="radio" name="home_purchase" value="yes" class="form-radio text-blue-600">
+            <span class="ml-2">Yes</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="radio" name="home_purchase" value="no" checked class="form-radio text-blue-600">
+            <span class="ml-2">No</span>
+          </label>
+        </div>
+      </div>
+      
+      <!-- Investment & Financial Information -->
+      <div class="border border-gray-300 p-4 rounded mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Investment & Financial Information</h2>
+        <label for="investment_amount" class="block text-lg font-medium mb-1">Investment Amount (USD):</label>
+        <input type="number" id="investment_amount" name="investment_amount" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+        
+        <label for="risk_tolerance" class="block text-lg font-medium mt-4 mb-1">Risk Tolerance:</label>
+        <select id="risk_tolerance" name="risk_tolerance" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+          <option value="Conservative">Conservative</option>
+          <option value="Moderate">Moderate</option>
+          <option value="Aggressive">Aggressive</option>
+        </select>
+        
+        <label for="ticker" class="block text-lg font-medium mt-4 mb-1">Preferred Financial Instrument (Ticker):</label>
+        <input type="text" id="ticker" name="ticker" placeholder="e.g., AAPL, GOOG" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      
+      <!-- Additional Features -->
+      <div class="border border-gray-300 p-4 rounded mb-6">
+        <h2 class="text-2xl font-semibold mb-4">Additional Features</h2>
+        <p class="text-lg font-medium mb-2">Select additional features you want:</p>
+        <div class="flex flex-col space-y-2">
+          <label class="inline-flex items-center">
+            <input type="checkbox" name="features" value="tax_savings" class="form-checkbox text-blue-600">
+            <span class="ml-2">Tax & Savings Optimization</span>
+          </label>
+          <label class="inline-flex items-center">
+            <input type="checkbox" name="features" value="future_simulation" class="form-checkbox text-blue-600">
+            <span class="ml-2">Dynamic Future Simulation</span>
+          </label>
+        </div>
+      </div>
+      
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">
+          Get Personalized Advice
+        </button>
+      </div>
+    </form>
+    
+    <!-- Quick Links -->
+    <hr class="my-8">
+    <h3 class="text-2xl font-semibold mb-4">Quick Links</h3>
+    <ul class="list-disc pl-6 space-y-1">
+      <li><a href="/chatbot" class="text-blue-600 hover:underline">Finance Chatbot</a></li>
+      <li><a href="/simulation" class="text-blue-600 hover:underline">Dynamic Future Simulation</a></li>
+      <li><a href="/tax_savings" class="text-blue-600 hover:underline">Tax & Savings Optimization</a></li>
+      <li><a href="/followup" class="text-blue-600 hover:underline">Follow-Up Questions</a></li>
+    </ul>
+  </div>
+</body>
+</html>

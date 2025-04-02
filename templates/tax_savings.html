@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax & Savings Optimization</title>
+  <!-- Link to your compiled Tailwind CSS file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='global.css') }}">
+</head>
+<body class="bg-background text-foreground font-sans">
+  <div class="container mx-auto p-6">
+    <h1 class="text-4xl font-bold mb-8 text-center">Tax & Savings Optimization</h1>
+    
+    <form action="/tax_savings" method="post" class="max-w-xl mx-auto bg-white shadow rounded-lg p-6">
+      <div class="mb-4">
+        <label for="annual_income" class="block text-lg font-medium mb-1">Annual Income (USD):</label>
+        <input type="number" id="annual_income" name="annual_income" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      
+      <div class="mb-4">
+        <label for="current_savings" class="block text-lg font-medium mb-1">Current Savings (USD):</label>
+        <input type="number" id="current_savings" name="current_savings" required class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      
+      <div class="mb-4">
+        <label for="investment_options" class="block text-lg font-medium mb-1">Preferred Investment Options:</label>
+        <input type="text" id="investment_options" name="investment_options" placeholder="e.g., mutual funds, stocks" class="w-full p-3 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+      
+      <div class="text-center">
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition">
+          Optimize My Tax & Savings
+        </button>
+      </div>
+    </form>
+    
+    {% if tax_advice %}
+      <div class="mt-6 bg-gray-50 border border-gray-200 p-6 rounded shadow">
+        <h2 class="text-2xl font-semibold mb-4">Tax & Savings Advice</h2>
+        <div class="prose">
+          {{ tax_advice|safe }}
+        </div>
+      </div>
+    {% endif %}
+    
+    <div class="mt-6 text-center">
+      <a href="/" class="text-blue-600 hover:underline">Back to Home</a>
+    </div>
+  </div>
+</body>
+</html>
